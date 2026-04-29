@@ -1,0 +1,120 @@
+[
+  {
+    "slug": "art-of-microinteractions",
+    "title": "The Art of Microinteractions",
+    "excerpt": "Discover how the smallest animations can transform user experiences from functional to delightful.",
+    "date": "2026-04-25",
+    "category": "Design",
+    "emoji": "✨",
+    "author": "Caleb Tam",
+    "tags": [
+      "microinteractions",
+      "UX design",
+      "animation",
+      "user experience"
+    ],
+    "coverImage": "",
+    "content": "## The Hidden Power of Microinteractions\n\nMicrointeractions are the tiny, often overlooked moments in a digital product that accomplish a single task. They're the ping of a notification, the pull-to-refresh animation, the subtle color change when a button is pressed.\n\n### Why They Matter\n\nIn a world where users expect polished experiences, microinteractions serve as the bridge between functional and delightful. They communicate status, provide feedback, and guide users through workflows without a single instruction manual.\n\n> \"Good design is as little design as possible.\" — Dieter Rams\n\n### The Four Elements\n\nEvery microinteraction consists of four parts:\n\n1. **Trigger** — What initiates the interaction?\n2. **Rules** — What happens?\n3. **Feedback** — How does the user know it happened?\n4. **Loops & Modes** — What determines the meta-rules?\n\n### Putting It Into Practice\n\nConsider the humble \"like\" button. A simple state change works, but add a subtle bounce animation and a tiny confetti burst, and suddenly the action feels rewarding. The user didn't just click — they *interacted*.\n\n### Designing for Delight\n\nThe best microinteractions go unnoticed. They feel natural, almost inevitable. When done right, users don't think about them — they simply enjoy the experience.\n\nStart small. Pick one element in your next project and ask: how can this tiny moment bring joy?"
+  },
+  {
+    "slug": "future-of-web-animations",
+    "title": "The Future of Web Animations",
+    "excerpt": "From CSS transitions to GPU-accelerated frameworks — exploring where web animation is headed in 2026 and beyond.",
+    "date": "2026-04-20",
+    "category": "Technology",
+    "emoji": "🚀",
+    "author": "Caleb Tam",
+    "tags": [
+      "web animations",
+      "CSS",
+      "Framer Motion",
+      "performance",
+      "WAAPI"
+    ],
+    "coverImage": "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=600&h=400&fit=crop",
+    "content": "## The Evolution of Motion on the Web\n\nWeb animations have come a long way from the days of Flash and GIFs. Today, we have tools that harness the full power of the GPU, enabling 60fps animations that feel as smooth as native apps.\n\n### The Current Landscape\n\n- **CSS Animations & Transitions** — Simple, declarative, and hardware-accelerated\n- **Framer Motion** — Declarative React animations with spring physics\n- **GSAP** — Professional-grade timeline control\n- **Motion One** — Lightweight, standards-based animations\n\n### What's Coming\n\nThe Web Animations API (WAAPI) is maturing rapidly, bringing native animation capabilities that rival JavaScript libraries. Combined with View Transitions API, we're entering an era where page transitions can be cinematic without heavy frameworks.\n\n### Performance Considerations\n\nNot all animations are created equal. The key performance killers:\n\n- Animating `width`, `height`, or `top`/`left` triggers layout recalculations\n- Stick to `transform` and `opacity` for GPU-accelerated animations\n- Use `will-change` sparingly — too many layers exhaust GPU memory\n\n### The Bottom Line\n\nAnimations aren't just decoration — they're communication. As our tools improve, the barrier between \"can animate\" and \"should animate\" becomes more important than ever."
+  },
+  {
+    "slug": "designing-with-spring-physics",
+    "title": "Designing with Spring Physics",
+    "excerpt": "Why spring-based animations feel more natural than traditional easing curves — and how to master them.",
+    "date": "2026-04-14",
+    "category": "Design",
+    "emoji": "🔄",
+    "author": "Caleb Tam",
+    "tags": [
+      "spring physics",
+      "animations",
+      "Framer Motion",
+      "easing"
+    ],
+    "coverImage": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&h=400&fit=crop",
+    "content": "## Springs: Nature's Animation Engine\n\nEverything in the physical world moves with spring-like behavior. A door closes with a slight bounce. A tree branch sways and settles. Our brains are wired to expect these natural motion patterns.\n\n### Why Springs Beat Easing Curves\n\nTraditional easing curves (ease-in, ease-out, cubic-bezier) define a fixed motion path. Springs, on the other hand, are dynamic. They respond to:\n\n- **Stiffness** — How rigid is the spring? Higher values = snappier motion\n- **Damping** — How quickly does the motion settle? Lower values = more bounce\n- **Mass** — How heavy is the object? Higher values = more inertia\n\n### Getting Started with Framer Motion\n\n```jsx\nimport { motion } from 'framer-motion'\n\n<motion.div\n  animate={{ scale: 1.2 }}\n  transition={{\n    type: 'spring',\n    stiffness: 300,\n    damping: 20\n  }}\n/>\n```\n\n### The Sweet Spot\n\n- **Stiffness: 100–300** — Feels natural for UI elements\n- **Damping: 10–30** — Light bounce to no bounce\n- **Mass: 0.5–2** — Feather-light to heavy objects\n\nSpring physics transform stiff, robotic interfaces into living, breathing experiences. Once you start designing with springs, it's hard to go back.\n\n![Spring physics visualization](https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&h=400&fit=crop)\n\nThe beauty of spring physics is that it mimics the real world — and our brains are wired to respond to that.\n"
+  },
+  {
+    "slug": "building-design-systems-with-motion",
+    "title": "Building Design Systems with Motion",
+    "excerpt": "A practical guide to integrating animation into your design system for consistent, delightful experiences.",
+    "date": "2026-04-08",
+    "category": "Engineering",
+    "emoji": "🎨",
+    "author": "Caleb Tam",
+    "tags": [
+      "design systems",
+      "motion tokens",
+      "accessibility",
+      "component patterns"
+    ],
+    "coverImage": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&h=400&fit=crop",
+    "content": "## Motion as a System\n\nA design system without motion is like a car with no suspension — technically functional, but every bump is felt. To scale delightful experiences, motion must be systematized.\n\n### Defining Your Motion Tokens\n\nJust as you have color and spacing tokens, you need motion tokens:\n\n```\nDuration:\n  fast: 150ms\n  normal: 300ms\n  slow: 500ms\n\nEasing:\n  default: [0.25, 0.1, 0.25, 1]\n  decelerate: [0.0, 0.0, 0.2, 1]\n  accelerate: [0.4, 0.0, 1, 1]\n```\n\n### Component-Level Patterns\n\n- **Enter animations** — Elements should enter from a logical direction\n- **Exit animations** — Elements should not disappear instantly\n- **State transitions** — Toggle, hover, focus, active all need motion\n- **Layout shifts** — Animate layout changes to maintain context\n\n### Accessibility First\n\nAlways provide a `prefers-reduced-motion` fallback. Motion should enhance, not hinder. Users with vestibular disorders should have a seamless experience with animations disabled.\n\nA well-crafted motion system doesn't just make things look good — it makes the product feel coherent, intentional, and alive."
+  },
+  {
+    "slug": "performance-optimization-for-animations",
+    "title": "Performance Optimization for Animations",
+    "excerpt": "Keep your animations buttery smooth at 60fps. Techniques for profiling, optimizing, and debugging motion performance.",
+    "date": "2026-03-28",
+    "category": "Engineering",
+    "emoji": "⚡",
+    "author": "Caleb Tam",
+    "tags": [
+      "performance",
+      "optimization",
+      "60fps",
+      "rendering",
+      "profiling"
+    ],
+    "coverImage": "https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?w=600&h=400&fit=crop",
+    "content": "## 60fps or Bust\n\nA janky animation is worse than no animation. It signals unprofessionalism and frustrates users. Here's how to keep things smooth.\n\n### The Render Pipeline\n\nUnderstanding the browser's render pipeline is crucial:\n\n1. **JavaScript** — Your code runs\n2. **Style** — CSS rules are applied\n3. **Layout** — Geometry is calculated\n4. **Paint** — Pixels are filled\n5. **Composite** — Layers are combined\n\nOnly the Composite step is GPU-accelerated. Stick to `transform` and `opacity` to skip Layout and Paint.\n\n### Profiling Tools\n\n- **Chrome DevTools Performance tab** — Flame graphs of frame rendering\n- **FPS Meter** — Real-time frame rate overlay\n- **Layers Panel** — See what's being composited\n\n### Common Pitfalls\n\n- Animating `box-shadow` triggers paint on every frame\n- `filter: blur()` is expensive — use sparingly\n- Too many simultaneous animations overload the GPU\n- Large images that repaint on scroll\n\n### Practical Tips\n\n```css\n/* Good */\ntransform: translateX(100px);\nopacity: 0.5;\n\n/* Bad — triggers layout */\nwidth: 200px;\nheight: 300px;\nleft: 100px;\n```\n\nOptimize early, but not prematurely. Profile first, then fix the bottlenecks that actually matter."
+  },
+  {
+    "slug": "creative-coding-with-framer-motion",
+    "title": "Creative Coding with Framer Motion",
+    "excerpt": "Push beyond buttons and cards — explore expressive, artistic animations with Framer Motion's advanced features.",
+    "date": "2026-03-20",
+    "category": "Creative",
+    "emoji": "🌀",
+    "author": "Caleb Tam",
+    "tags": [
+      "creative coding",
+      "Framer Motion",
+      "generative art",
+      "gestures",
+      "scroll"
+    ],
+    "coverImage": "https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?w=600&h=400&fit=crop",
+    "content": "## Motion as Expression\n\nFramer Motion isn't just for UI interactions. With its declarative API and spring physics, it's a powerful tool for creative coding and generative art on the web.\n\n### Beyond the Basics\n\nMost tutorials cover `whileHover` and `animate`. But Framer Motion can do so much more:\n\n- **`AnimatePresence`** — Orchestrate complex enter/exit sequences\n- **`useScroll` & `useTransform`** — Link animations to scroll position\n- **`useMotionValue`** — Animate outside React's render cycle for 60fps\n- **`layout` animations** — Auto-animate between layout states\n\n### Scroll-Driven Storytelling\n\n```jsx\nconst { scrollYProgress } = useScroll()\nconst scale = useTransform(scrollYProgress, [0, 1], [1, 0.5])\n\n<motion.div style={{ scale }} />\n```\n\nThis pattern powers parallax scrolling, progress bars, and immersive storytelling.\n\n### Gesture-Driven Interactions\n\nDrag, pan, hover, and tap gestures can be combined to create playful, exploratory interfaces. Think draggable cards, pull-to-refresh, and swipeable galleries.\n\n### The Creative Frontier\n\nThe most exciting work happens when we stop thinking of motion as \"UI animation\" and start thinking of it as a medium for expression. What story do you want to tell?"
+  },
+  {
+    "slug": "test",
+    "title": "test",
+    "excerpt": "",
+    "date": "2026-04-29",
+    "category": "Design",
+    "emoji": "📝",
+    "author": "Caleb Tam",
+    "tags": [
+      "react"
+    ],
+    "content": "## 1\n### 2\n"
+  }
+]

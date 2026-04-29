@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* ── Light mode (default) — blue-white ── */
+:root {
+  --color-accent: #4f6ef7;
+  --color-accent-dark: #3b56d9;
+  --color-surface: #f0f5ff;
+  --color-surface-light: #ffffff;
+  --color-surface-lighter: #d6e1f5;
+  --color-text-primary: #181d33;
+  --color-text-secondary: #495274;
+  --color-text-muted: #8690b0;
+  --scrollbar-track: #d6e1f5;
+  --scrollbar-thumb: #b8c4e0;
+  --scrollbar-thumb-hover: #9aa8cc;
+}
+
+/* ── Dark mode ── */
+.dark {
+  --color-surface: #0f0f13;
+  --color-surface-light: #1a1a23;
+  --color-surface-lighter: #252533;
+  --color-text-primary: #f1f1f7;
+  --color-text-secondary: #a1a1b5;
+  --color-text-muted: #6b6b80;
+  --scrollbar-track: #0f0f13;
+  --scrollbar-thumb: #252533;
+  --scrollbar-thumb-hover: #353550;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-surface);
+  color: var(--color-text-primary);
+  font-family: 'Inter', system-ui, sans-serif;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+
+/* Gradient text utility */
+.gradient-text {
+  background: linear-gradient(135deg, #6366f1, #a855f7, #ec4899);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient 8s ease infinite;
+}
+
+@keyframes gradient {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Smooth underline for links */
+.link-underline {
+  position: relative;
+  text-decoration: none;
+}
+
+.link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #6366f1, #a855f7);
+  transition: width 0.3s ease;
+}
+
+.link-underline:hover::after {
+  width: 100%;
+}

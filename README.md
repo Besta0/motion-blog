@@ -1,30 +1,63 @@
-# MotionBlog — Caleb Tam
+# MotionBlog
 
 A design-focused blog built with **Next.js 14**, **Framer Motion**, and **Tailwind CSS**. Features a fully functional admin panel for managing posts without touching code.
 
-![Light mode preview](https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&h=400&fit=crop)
+<img src="public/screenshots/motionblog-home.jpg" alt="MotionBlog Homepage" width="800"/>
 
 ## Features
 
 ### Public Site
-- **Animated UI** — Spring physics, scroll-triggered animations, layout transitions powered by Framer Motion
-- **Light / Dark mode** — Toggle with persistence to localStorage; respects system preference
-- **Reading time** — Auto-calculated per post
-- **View counts** — Session-deduplicated, stored in localStorage, displayed on cards and post pages
-- **Tags & filtering** — Tag cloud page with click-to-filter posts
-- **Related posts** — Tag-matching algorithm suggests related content
-- **Cover images** — Displayed on blog cards and post pages
-- **Markdown content** — Full GFM support via react-markdown with syntax-highlighted code blocks
-- **Reading progress bar** — Fixed position indicator on article pages
-- **Responsive** — Mobile-first design with fluid typography
+
+| Feature | Description |
+|---------|-------------|
+| **Animated UI** | Spring physics, scroll-triggered animations, layout transitions powered by Framer Motion |
+| **Light / Dark mode** | Toggle with persistence to localStorage; respects system preference |
+| **Reading time** | Auto-calculated per post |
+| **View counts** | Session-deduplicated, stored in localStorage |
+| **Tags & filtering** | Tag cloud page with click-to-filter posts |
+| **Related posts** | Tag-matching algorithm suggests related content |
+| **Cover images** | Displayed on blog cards and post pages |
+| **Markdown content** | Full GFM support via react-markdown with code blocks and copy button |
+| **Reading progress bar** | Fixed position indicator on article pages |
+| **Responsive** | Mobile-first design with fluid typography |
 
 ### Admin Panel (`/admin`)
+
 - **Password-protected** — Server-validated auth with session token
 - **CRUD posts** — Create, edit, delete blog posts from a dashboard
-- **Image upload** — Upload cover images and inline images (stored in `/public/uploads/`)
+- **Image upload** — Upload cover images and inline images
 - **Markdown editor** — Raw editing with live preview toggle
 - **Inline image insertion** — Upload images directly into markdown content
 - **Slug management** — Auto-sanitized URL identifiers with uniqueness checks
+
+## Screenshots
+
+<div align="center">
+  <table>
+    <tr>
+      <td><img src="public/screenshots/motionblog-home.jpg" alt="Homepage" width="400"/></td>
+      <td><img src="public/screenshots/motionblog-blog.jpg" alt="Blog listing" width="400"/></td>
+    </tr>
+    <tr>
+      <td align="center"><em>Homepage with animated hero</em></td>
+      <td align="center"><em>Blog listing with sort options</em></td>
+    </tr>
+    <tr>
+      <td><img src="public/screenshots/motionblog-post.jpg" alt="Blog post" width="400"/></td>
+      <td><img src="public/screenshots/motionblog-tags.jpg" alt="Tags page" width="400"/></td>
+    </tr>
+    <tr>
+      <td align="center"><em>Blog post with code blocks & progress bar</em></td>
+      <td align="center"><em>Tag cloud with filtering</em></td>
+    </tr>
+    <tr>
+      <td colspan="2"><img src="public/screenshots/motionblog-admin.jpg" alt="Admin login" width="800"/></td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center"><em>Admin panel login</em></td>
+    </tr>
+  </table>
+</div>
 
 ## Tech Stack
 
@@ -40,6 +73,7 @@ A design-focused blog built with **Next.js 14**, **Framer Motion**, and **Tailwi
 ## Getting Started
 
 ### Prerequisites
+
 - Node.js 18+
 - npm or yarn
 
@@ -103,12 +137,14 @@ content/
 ## Adding Posts
 
 ### Via admin panel (recommended)
-1. Go to `/admin` and sign in
+
+1. Go to `/admin` and sign in with your `ADMIN_PASSWORD`
 2. Click **+ New Post**
-3. Fill in title, content (Markdown), optional cover image and tags
+3. Fill in title, slug, content (Markdown), optional cover image and tags
 4. Click **Publish**
 
 ### Via JSON file
+
 Edit `content/posts.json` directly and restart the server.
 
 ## Design System

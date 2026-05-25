@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, useCallback } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useParams, notFound } from "next/navigation";
@@ -240,6 +240,16 @@ export default function BlogPostPage() {
               ),
               code: ({ children, className }) => {
                 const isInline = !className;
+                const [copied, setCopied] = useState(false);
+
+                const handleCopy = useCallback(() => {
+                  const text = typeof children === "string" ? children : "";
+                  navigator.clipboard.writeText(text).then(() => {
+                    setCopied(true);
+                    setTimeout(() => setCopied(false), 2000);
+                  });
+                }, [children]);
+
                 if (isInline) {
                   return (
                     <code className="px-2 py-0.5 rounded-md bg-surface-lighter text-accent text-sm font-mono">
@@ -247,17 +257,50 @@ export default function BlogPostPage() {
                     </code>
                   );
                 }
+
+                const lang = className?.replace("language-", "") || "";
+
                 return (
-                  <motion.pre
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="bg-surface-light rounded-xl p-6 mb-6 overflow-x-auto border border-surface-lighter"
-                  >
-                    <code className="text-sm font-mono text-text-primary leading-relaxed">
-                      {children}
-                    </code>
-                  </motion.pre>
+                  <div className="relative group mb-6">
+                    {/* Header bar */}
+                    <div className="flex items-center justify-between bg-surface-lighter/80 border border-surface-lighter border-b-0 rounded-t-xl px-4 py-1.5">
+                      <span className="text-xs text-text-muted font-mono">
+                        {lang}
+                      </span>
+                      <button
+                        onClick={handleCopy}
+                        className="flex items-center gap-1.5 text-xs text-text-muted hover:text-text-primary transition-all"
+                        aria-label="Copy code"
+                      >
+                        {copied ? (
+                          <>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                              <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            Copied
+                          </>
+                        ) : (
+                          <>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                              <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                            </svg>
+                            Copy
+                          </>
+                        )}
+                      </button>
+                    </div>
+                    <motion.pre
+                      initial={{ opacity: 0, y: 10 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      className="bg-surface-light rounded-b-xl p-6 overflow-x-auto border border-surface-lighter border-t-0"
+                    >
+                      <code className="text-sm font-mono text-text-primary leading-relaxed">
+                        {children}
+                      </code>
+                    </motion.pre>
+                  </div>
                 );
               },
               strong: ({ children }) => (

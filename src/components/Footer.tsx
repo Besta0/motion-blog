@@ -12,43 +12,34 @@ export default function Footer() {
       className="border-t border-surface-lighter mt-24"
     >
       <div className="max-w-6xl mx-auto px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           {/* Brand */}
           <div>
             <Link href="/">
-              <span className="text-lg font-bold gradient-text">MotionBlog</span>
+              <span className="text-lg font-bold font-display tracking-tight">MotionBlog</span>
             </Link>
-            <p className="mt-3 text-sm text-text-secondary leading-relaxed">
-              Stories at the intersection of design, technology, and creativity.
+            <p className="mt-2 text-sm text-text-secondary">
+              Stories at the intersection of design and technology.
             </p>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h4 className="text-sm font-semibold text-text-primary mb-4">Quick Links</h4>
-            <div className="flex flex-col gap-2">
-              <Link href="/" className="text-sm text-text-secondary hover:text-accent transition-colors">
-                Home
-              </Link>
-              <Link href="/blog" className="text-sm text-text-secondary hover:text-accent transition-colors">
-                Blog
-              </Link>
-            </div>
-          </div>
-
-          {/* Connect */}
-          <div>
-            <h4 className="text-sm font-semibold text-text-primary mb-4">Connect</h4>
-            <div className="flex flex-col gap-2">
-              <span className="text-sm text-text-secondary">Twitter / X</span>
-              <span className="text-sm text-text-secondary">GitHub</span>
-              <span className="text-sm text-text-secondary">Dribbble</span>
-            </div>
+          {/* Links — single row */}
+          <div className="flex items-center gap-6">
+            <Link href="/" className="text-sm text-text-secondary hover:text-accent transition-colors">
+              Home
+            </Link>
+            <Link href="/blog" className="text-sm text-text-secondary hover:text-accent transition-colors">
+              Blog
+            </Link>
+            <Link href="/tags" className="text-sm text-text-secondary hover:text-accent transition-colors">
+              Tags
+            </Link>
           </div>
         </div>
 
-        <div className="pt-8 border-t border-surface-lighter text-center text-sm text-text-muted">
-          &copy; {new Date().getFullYear()} MotionBlog by Caleb Tam. Built with Next.js & Framer Motion.
+        <div className="mt-8 pt-8 border-t border-surface-lighter flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-text-muted">
+          <span>&copy; {new Date().getFullYear()} Caleb Tam.</span>
+          <span>Built with Next.js &amp; Framer Motion.</span>
         </div>
       </div>
     </motion.footer>

@@ -50,61 +50,37 @@ export default function BlogPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-center max-w-3xl mx-auto"
           >
-            <motion.span
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.1 }}
-              className="inline-block px-4 py-2 rounded-full bg-surface-lighter/50 border border-surface-lighter text-xs font-medium text-text-secondary mb-6"
-            >
-              Explore All Articles
-            </motion.span>
-            <h1 className="text-4xl md:text-6xl font-bold mb-4">
-              Caleb Tam's <span className="gradient-text">Blog</span>
+            <span className="text-xs font-medium text-text-muted tracking-widest uppercase mb-3 block">
+              All articles
+            </span>
+            <h1 className="text-4xl md:text-6xl font-bold mb-4 font-display tracking-tight">
+              Blog
             </h1>
-            <p className="text-lg text-text-secondary">
-              Thoughts on design, technology, and the art of motion.
-            </p>
-          </motion.div>
 
-          {/* Sort bar */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="flex flex-wrap items-center justify-center gap-2 mt-10"
-          >
-            {sortOptions.map((opt) => (
-              <motion.button
-                key={opt.key}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => setSortBy(opt.key)}
-                className={`px-5 py-2 rounded-full text-sm font-medium transition-all ${
-                  sortBy === opt.key
-                    ? "bg-accent text-white"
-                    : "bg-surface-light text-text-primary border border-surface-lighter hover:bg-accent hover:text-white hover:border-accent"
-                }`}
+            {/* Sort bar — inline text buttons */}
+            <div className="flex flex-wrap items-center gap-1 mt-8">
+              {sortOptions.map((opt) => (
+                <button
+                  key={opt.key}
+                  onClick={() => setSortBy(opt.key)}
+                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+                    sortBy === opt.key
+                      ? "bg-accent/10 text-accent"
+                      : "text-text-secondary hover:text-text-primary hover:bg-surface-lighter/50"
+                  }`}
+                >
+                  {opt.label}
+                </button>
+              ))}
+              <span className="text-text-muted mx-1">/</span>
+              <a
+                href="/tags"
+                className="px-4 py-2 text-sm text-text-secondary hover:text-accent transition-colors"
               >
-                {opt.label}
-              </motion.button>
-            ))}
-          </motion.div>
-
-          {/* Quick links to Tags */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.4 }}
-            className="text-center mt-6"
-          >
-            <a
-              href="/tags"
-              className="inline-flex items-center gap-1.5 text-xs text-text-muted hover:text-accent transition-colors"
-            >
-              Browse by tag &rarr;
-            </a>
+                Tags
+              </a>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -114,10 +90,10 @@ export default function BlogPage() {
         <AnimatePresence mode="wait">
           <motion.div
             key={sortBy}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
+            exit={{ opacity: 0, y: -12 }}
+            transition={{ duration: 0.25 }}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
           >
             {sortedPosts.map((post, index) => (
@@ -131,7 +107,7 @@ export default function BlogPage() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="mt-16 text-center text-sm text-text-muted"
+          className="mt-16 text-sm text-text-muted"
         >
           {allPosts.length} {allPosts.length === 1 ? "article" : "articles"} &middot;{" "}
           {Object.values(viewCounts).reduce((a, b) => a + b, 0)} total views

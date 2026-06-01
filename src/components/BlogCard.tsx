@@ -9,9 +9,10 @@ import { getViewCount } from "@/lib/views";
 interface BlogCardProps {
   post: Post;
   index: number;
+  featured?: boolean;
 }
 
-export default function BlogCard({ post, index }: BlogCardProps) {
+export default function BlogCard({ post, index, featured }: BlogCardProps) {
   const [views, setViews] = useState(0);
 
   useEffect(() => {
@@ -28,14 +29,15 @@ export default function BlogCard({ post, index }: BlogCardProps) {
         delay: index * 0.1,
         ease: [0.25, 0.4, 0.25, 1],
       }}
+      className="overflow-hidden"
     >
       <Link href={`/blog/${post.slug}`}>
         <motion.div
-          whileHover={{ y: -6 }}
-          className="group bg-surface-light rounded-2xl overflow-hidden border border-surface-lighter hover:border-accent/30 transition-colors duration-300 h-full flex flex-col"
+          whileHover={{ y: -4 }}
+          className={`group bg-surface-light rounded-2xl overflow-hidden border border-surface-lighter hover:border-accent/20 transition-colors duration-300 h-full flex flex-col ${featured ? '' : ''}`}
         >
           {/* Image */}
-          <div className="relative h-52 overflow-hidden">
+          <div className={`relative overflow-hidden ${featured ? 'h-64 lg:h-80' : 'h-52'}`}>
             {post.coverImage ? (
               <>
                 <motion.img
@@ -50,7 +52,7 @@ export default function BlogCard({ post, index }: BlogCardProps) {
               </>
             ) : (
               <motion.div
-                className="absolute inset-0 bg-gradient-to-br from-accent/20 via-purple-500/20 to-pink-500/20"
+                className="absolute inset-0 bg-gradient-to-br from-accent/15 via-accent/10 to-surface-lighter"
                 whileHover={{ scale: 1.1 }}
                 transition={{ duration: 0.6 }}
               />
@@ -74,7 +76,7 @@ export default function BlogCard({ post, index }: BlogCardProps) {
           </div>
 
           {/* Content */}
-          <div className="p-6 flex flex-col flex-1">
+          <div className={`flex flex-col flex-1 ${featured ? 'p-8' : 'p-6'}`}>
             {/* Meta row: date + reading time + views */}
             <div className="flex items-center gap-2 text-xs text-text-muted mb-3 flex-wrap">
               <time>
@@ -97,7 +99,7 @@ export default function BlogCard({ post, index }: BlogCardProps) {
             </div>
 
             {/* Title */}
-            <h3 className="text-lg font-semibold text-text-primary mb-2 group-hover:text-accent transition-colors duration-300">
+            <h3 className={`font-semibold text-text-primary mb-2 group-hover:text-accent transition-colors duration-300 font-display tracking-tight ${featured ? 'text-xl md:text-2xl' : 'text-lg'}`}>
               {post.title}
             </h3>
 
